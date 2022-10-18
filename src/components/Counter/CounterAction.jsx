@@ -3,7 +3,7 @@ import './CounterAction.css';
 
 function CounterAction(props) {
     return (
-        <div className="">
+        <div className="counting card bg-info py-5 text-center">
         <div className='action'>
             <h1 className='count'>{props.counter}</h1>
 

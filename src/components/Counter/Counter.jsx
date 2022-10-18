@@ -1,17 +1,27 @@
 import './Counter.css';
 import { useState } from "react";
 import CounterAction from './CounterAction';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {decrementCounter, incrementCounter} from '../../Redux/counterSlice'
 
 function Counter() {
-    const [count, setcount] = useState(0);
-    const incresecounter = () => setcount(count + 1);
-    const decresecounter = () => count > 0 && setcount(count - 1);
-    const reset = () => setcount(0);
+    const countervalue=useSelector(state=>state.counterStore.counter)
+const dispatch=useDispatch();
+
+    const incresecounter = () => {
+        dispatch(incrementCounter(1))
+    }
+    const decresecounter = () =>{
+        dispatch(decrementCounter(1))
+        if(countervalue<0){
+            countervalue=0;
+        }
+    }
+    
     return (
         <div>
 
-            <CounterAction res={reset} counter={count} inc={incresecounter} dec={decresecounter} />
+            <CounterAction  counter={countervalue} inc={incresecounter} dec={decresecounter} />
         </div>
     );
 }

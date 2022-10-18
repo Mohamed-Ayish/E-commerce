@@ -25,12 +25,12 @@ function Shop() {
                             <Link to={`/shop/${product.id}`} key={product.id} className=" col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5" >
                                 <div className="product-card card   h-100">
                                     <div className="image text-center  py-2">
-                                        <img src={product.image} alt="" />
+                                        <img className="" src={product.image} alt="" />
                                     </div>
-                                    <div className="content  px-2">
+                                    <div className="content   px-2">
                                         <h2>Title: <span><h4>{product.title}</h4></span></h2>
                                         <h2>Price: <span><h4>{product.price} EGP</h4></span></h2>
-                                        <h2>description: <span><h4>{product.description}</h4></span></h2>
+                                        
                                     </div>
                                 </div>
                             </Link>
