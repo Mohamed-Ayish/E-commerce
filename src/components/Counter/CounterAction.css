@@ -1,0 +1,31 @@
+.inc {
+    color: red;
+    background-color: white;
+    font-size: 10px;
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.dec {
+    color: red;
+    background-color: white;
+    font-size: 10px;
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.count {
+    color: red;
+}
+
+.res {
+    color: red;
+    background-color: white;
+    font-size: 10px;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+}
+

@@ -1,0 +1,26 @@
+.product-details .content {
+    width: 50%;
+
+}
+
+.product-details .image img {
+    width: 50%;
+}
+
+.product-details .content h2 {
+    font-size: 20px;
+    color: red;
+}
+
+.product-details {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.product-details .content h4 {
+    font-size: 10px;
+    color: black;
+}

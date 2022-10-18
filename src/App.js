@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+
+import { Form } from 'react-bootstrap';
+import {BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import './App.css';
+import Counter from './components/Counter/Counter';
+import Details from './components/Details';
+import Navbar from './components/Navbar';
+import Shop from './components/Shop';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+<BrowserRouter>
+<Navbar></Navbar>
+<Routes>
+
+  <Route path='/shop' element={<Shop/>}/>
+  <Route path='/shop/:id' element={<Details/>}/>
+
+</Routes>
+
+      </BrowserRouter>  
+      
+     
+     
+      
   );
 }
 
