@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 function Navbar() {
+    const count=useSelector(store=>store.cartstore.counter)
+    
     return (
 <>
 
@@ -23,8 +26,12 @@ function Navbar() {
                                 <Link to="/shop">Shop</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/count">counter</Link>
+                                <Link to="/count">Supporting</Link>
                             </li>
+                            <li class="nav-item">
+                                <Link to="/cart">cart <span className='text-danger'>{count}</span> </Link>
+                            </li>
+                           
                         </ul>
                     </div>
                 </div>

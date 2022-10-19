@@ -7,6 +7,7 @@ import Details from './components/Details';
 import Navbar from './components/Navbar';
 import Shop from './components/Shop';
 import Home from './components/Home';
+import CartList from './components/CartList';
 
 
 
@@ -23,6 +24,8 @@ function App() {
   <Route path='/shop/:id' element={<Details/>}/>
   <Route path='/count' element={<Counter/>}/>
   <Route path='/' element={<Home/>}/>
+  <Route path='/cart' element={<CartList/>}/>
+
 
 </Routes>
 

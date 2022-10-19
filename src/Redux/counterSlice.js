@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Action } from "@remix-run/router";
 
+//initialstate
 const initialState = {
     counter: 0
 }
@@ -16,9 +16,17 @@ export const CounterSlice = createSlice({
         },
         decrementCounter: (state, action) => {
             state.counter = state.counter - action.payload;
+            if(state.counter <0){
+                state.counter=0;
+            }
+        },
+        resetcounter: (state, action) => {
+            state.counter = 0;
         },
 
     }
 
 })
-export const { incrementCounter, decrementCounter } = CounterSlice.actions;
+
+//action
+export const { incrementCounter, decrementCounter ,resetcounter} = CounterSlice.actions;
