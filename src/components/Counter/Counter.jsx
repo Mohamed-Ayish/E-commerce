@@ -22,7 +22,7 @@ const dispatch=useDispatch();
     return (
         <div>
 
-            <CounterAction res={reset} counter={countervalue} inc={incresecounter} dec={decresecounter} />
+            <CounterAction res={reset} counter={countervalue} inc={()=>incresecounter()} dec={()=>decresecounter()} />
         </div>
     );
 }

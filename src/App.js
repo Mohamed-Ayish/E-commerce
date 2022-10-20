@@ -8,6 +8,11 @@ import Navbar from './components/Navbar';
 import Shop from './components/Shop';
 import Home from './components/Home';
 import CartList from './components/CartList';
+import Signup from './components/Forms/Signup';
+import Login from './components/Forms/Login';
+import Notfound from './components/Notfound';
+
+
 
 
 
@@ -25,8 +30,9 @@ function App() {
   <Route path='/count' element={<Counter/>}/>
   <Route path='/' element={<Home/>}/>
   <Route path='/cart' element={<CartList/>}/>
-
-
+  <Route path='/signup' element={<Signup/>}/>
+  <Route path='/login' element={<Login/>}/>
+  <Route path='/*' element={<Notfound/>}/>
 </Routes>
 
       </BrowserRouter>  

@@ -22,7 +22,7 @@ const Details = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 ">
-                        <div className="product-details d-flex">
+                        <div className="product-details d-flex bg-info">
                             <div className="image">
                                 <img src={products.image} alt="" />
                             </div>
