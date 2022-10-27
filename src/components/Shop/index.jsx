@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { addToCart, } from "../../Redux/cartSlice";
+import { FaSpinner } from "react-icons/fa";
 import './shop.css';
+import { Spinner } from "react-bootstrap";
 
 
 
@@ -27,16 +29,27 @@ function Shop() {
     }
 
     // console.log(products)
+    
+
     return (
-        <div className="container ">
+        <>
+        {products.length ===0 ?(
+            <div className="loader d-flex justify-content-center align-items-center vh-100">
+<Spinner animation="border"/>
+            </div>
+            
+        ):(
+            <div className="container ">
             <div className="row">
-                <h1 className="text-danger mb-5 text-center fs-4 mt-5">Click on the product to see its details : </h1>
+                <h1 className="text-danger mb-5 text-center fs-4 mt-5">Products  </h1>
+               
                 {
+                    
                     products.map((product => {
                         return (
                             <>
-                                <div className=" col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5" >
-                                    <div className="product-card card   h-100">
+                                <div className=" col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5 " >
+                                    <div className="product-card card shadow  h-100">
                                         <div key={product.id} className="image text-center  py-2">
                                             <img className="h-100" src={product.image} alt="" />
                                         </div>
@@ -62,7 +75,11 @@ function Shop() {
                 }
             </div>
         </div>
-
+        )
+    }
+        
+       
+        </>
     );
 }
 export default Shop;

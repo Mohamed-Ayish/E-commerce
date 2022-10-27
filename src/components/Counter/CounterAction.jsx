@@ -1,19 +1,21 @@
+import { BsFillBookmarkDashFill, BsFillBookmarkPlusFill } from 'react-icons/bs';
 import './CounterAction.css';
 
 
 function CounterAction(props) {
     return (
-        <div className="counting card bg-info py-5 text-center">
-            <div className='action'>
-                <h1 className='text-danger'>please Support us</h1>
+        <div className="counting card py-5 text-center d-flex justify-content-center align-items-center vh-100">
+            <div className='action  p-5 card shadow'>
+                <h1 className='text-danger '>please Support us</h1>
 
-                <h1 className='count'>{props.counter}</h1>
-
-                <button className="dec" onClick={props.dec}>-</button>
-                <button className="inc" onClick={props.inc}>+</button>
+<div className="btns d-flex text-center justify-content-around align-items-center p-5">
+                <button className="dec bg-transparent border-0 fs-1" onClick={props.dec}><BsFillBookmarkDashFill /></button>
+                <h1 className='count card p-5 shadow text-info rounded-circle'>{props.counter}</h1>
+                <button className="inc bg-transparent border-0 fs-1" onClick={props.inc}><BsFillBookmarkPlusFill /></button>
+                </div>
                 <div>
 
-                    <button className="res" onClick={props.res}>reset</button>
+                   
 
                 </div>
             </div>

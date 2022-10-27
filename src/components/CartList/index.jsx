@@ -1,62 +1,90 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { additem, removeItem } from "../../Redux/cartSlice";
-import { FaBeer } from 'react-icons/fa';
-import { BsArchiveFill ,BsFillBookmarkPlusFill,BsFillBookmarkDashFill} from "react-icons/bs";
+import { decreaseitem, icreaseitem, removeItem } from "../../Redux/cartSlice";
+import { BsArchiveFill, BsFillBookmarkPlusFill, BsFillBookmarkDashFill } from "react-icons/bs";
 
 const CartList = () => {
     const cartlistt = useSelector(store => store.cartstore.listofcart);
-    const totalquantity = useSelector(store => store.cartstore.totalQuantity);
-    const cartQuantity = useSelector(store => store.cartstore.cartQuantity);
-    const totaltprice = useSelector(store => store.cartstore.totalPricce);
+    // const totalquantity = useSelector(store => store.cartstore.totalQuantity);
+    // const totaltprice = useSelector(store => store.cartstore.totalPricce);
     const dispatch = useDispatch();
-    const add = () => {
-        dispatch(additem());
+
+    const increase = (product) => {
+        dispatch(icreaseitem(product))
+    }
+    const decrease = (product) => {
+        dispatch(decreaseitem(product))
     }
 
     const removing = (idd) => {
         dispatch(removeItem(idd))
     }
+    const totalprice = () => {
+        let total = 0
+        cartlistt.map(e => {
+            total = total + (e.price * e.cartQuantity);
+
+        });
+        return `${total}`
+    }
+
 
     return (
         <>
-            <div className="container py-5">
+            <div className="container  py-5">
                 <div className="row">
-                    <h1 className="text-danger "> total price : <span className="text-dark">{totaltprice}</span> </h1>
-                    <h1 className="text-center text-danger">total quantity : <span className="text-dark">{totalquantity}</span> </h1>
+                    <div className="total d-flex justify-content-between mb-5">
+                        <div className="totalprice">
+                            <h1 className="text-dark "> Total price is : <span className="text-danger">{totalprice()}</span> </h1>
+
+                        </div>
+                        <div className="totalcuantity">
+                            <h1 className="text-center text-dark">Total quantity is : <span className="text-danger">{cartlistt.length}</span> </h1>
+                        </div>
+                    </div>
                     {
                         cartlistt.map((cart) => {
                             return (
                                 <>
-                                    <div className=" col-xl-12 col-lg-6 col-md-6 col-sm-12 mb-5 " >
-
-                                        <div className="product-card card d-flex w-50 m-auto bg-info">
-                                            <div key={cart.id} className="image py-2 text-center">
-                                                <img className="" src={cart.image} alt="" />
+                                    <div className="col-sm-12 mb-5  shadow">
+                                        <div className="row p-5">
+                                            <div className="col-md-4">
+                                                <div className="show d-flex">
+                                                    <div className="image  w-50">
+                                                        <img className="w-100 " src={cart.image} alt="" />
+                                                    </div>
+                                                    <div className="content w-50 d-flex align-items-center">
+                                                        <h2>{cart.title}</h2>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div className="content text-center  px-2">
-                                                <h2>Title: <span><h4>{cart.title}</h4></span></h2>
-                                                <h2>Price: <span><h4>{cart.price} EGP</h4></span></h2>
+                                            <div className="col-md-4">
+                                                <div className="quantity d-flex justify-content-around w-100 h-100  align-items-center">
+                                                    <button onClick={() => decrease(cart)} className="bg-transparent fs-2 border-0">
+                                                        <BsFillBookmarkDashFill /></button>
+                                                    <h2 className=" text-center  rounded-circle w-25 card shadow ">{cart.cartQuantity}</h2>
+                                                    <button onClick={() => increase(cart)} className=" bg-transparent fs-2 border-0">
+                                                        <BsFillBookmarkPlusFill /></button>
+                                                </div>
                                             </div>
-                                            <div className="btns text-center">
+                                            <div className="col-md-4 d-flex align-items-center justify-content-around">
+                                                <div className="price">
+                                                    <h2 className="fs-5">EGP  {cart.price * cart.cartQuantity}</h2>
+                                                </div>
                                                 <div className="remove">
-                                                <button onClick={() => removing(id)} className="btn  m-3 text-white" >
-                                                    <h3 className="text-danger">
-                                                        <BsArchiveFill /> </h3></button>
+                                                    <button className="bg-transparent border-0 fs-1 text-danger" onClick={() => removing(cart.id)}>
+                                                        <BsArchiveFill /></button>
                                                 </div>
-                                                <div className="icrement">
-                                                <button onClick={() => add()} className="text-danger border-0 fs-2  me-5"><BsFillBookmarkPlusFill/></button>
-                                                <button className="text-danger border-0 fs-2  "><BsFillBookmarkDashFill/></button>
-                                                </div>
-
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-sm-12 text-center">
                                                 <button className="btn bg-danger m-3 text-white ">
                                                     <Link className="text-white text-decoration-none" to="/shop">
                                                         return to shopping</Link></button>
                                             </div>
-                                            
                                         </div>
                                     </div>
-
                                 </>
                             );
                         })

@@ -19,8 +19,8 @@ function Signup() {
     ]
     const onSubmit = data => console.log(data);
     return (
-        
-        <Form onSubmit={handleSubmit(onSubmit)} className="bg-info p-5 w-25 text-info m-auto mt-5">
+
+        <Form onSubmit={handleSubmit(onSubmit)} className=" p-5 w-50 text-info m-auto mt-5">
             {/* First Name */}
             <Form.Group className="mb-3" controlId="formBasicName">
 
@@ -44,7 +44,7 @@ function Signup() {
             {/* last Name */}
             <Form.Group className="mb-3" controlId="formBasicName">
 
-               
+
                 <Form.Control
 
                     type="text" placeholder="last name"
@@ -66,7 +66,7 @@ function Signup() {
             {/* Phone Number */}
             <Form.Group className="mb-3" controlId="formBasicNumber">
 
-               
+
                 <Form.Control
 
                     type="text" placeholder="phone number"
@@ -90,7 +90,7 @@ function Signup() {
             {/* email */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
 
-               
+
                 <Form.Control
 
                     type="email" placeholder="Enter email"
@@ -110,7 +110,7 @@ function Signup() {
             </Form.Group>
             {/* //password */}
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                
+
                 <Form.Control type="password" placeholder="Password"
                     {
                     ...register('password',
@@ -135,22 +135,22 @@ function Signup() {
             {/* select */}
             <Controller
                 name="select"
-                
+
                 control={control}
 
                 render={({ field }) =>
                     <Select
-                    placeholder="select your gender"
-                        
+                        placeholder="select your gender"
+
                         {...field}
                         options={coursesoptions}
                     />
                 }
             />
             <div className="submit text-center ">
-            <Button className="mt-5  px-5" variant="primary" type="submit">
-                Submit
-            </Button>
+                <Button className="mt-5  px-5" variant="primary" type="submit">
+                    Submit
+                </Button>
             </div>
         </Form>
     )
