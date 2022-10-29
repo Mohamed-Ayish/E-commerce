@@ -62,7 +62,7 @@ function Login() {
 
                 <div className="submit text-center ">
                     <Button className="mt-5  px-5" variant="primary" type="submit">
-                        <Link className='text-decoration-none  text-light  fs-4' to="/nav">login</Link>
+                        <Link className='text-decoration-none  text-light  fs-4' to="/home">login</Link>
                     </Button>
 
                 </div>
